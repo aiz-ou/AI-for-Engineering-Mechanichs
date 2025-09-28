@@ -88,6 +88,7 @@ typing_extensions
 tzdata
 tzlocal
 urllib3
+ultralytics>=8.0.0
 validators
 watchdog
 Werkzeug
