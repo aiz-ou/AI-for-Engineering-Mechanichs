@@ -114,7 +114,7 @@ class LogTable:
             now_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))
             if len(self.saved_images) == 1:
                 # 只有一张图像时，保存为图片
-                file_name = abs_path('tempDir/pic_' + str(now_time) + '.png', path_type="current")
+                file_name = abs_path('./tempDir/pic_' + str(now_time) + '.png', path_type="current")
                 cv2.imwrite(file_name, self.saved_images[0])
                 return file_name
             else:
@@ -126,7 +126,7 @@ class LogTable:
                 else:
                     save_name = video_name
 
-                file_name = abs_path('tempDir/' + str(save_name) + '.avi', path_type="current")
+                file_name = abs_path('./tempDir/' + str(save_name) + '.avi', path_type="current")
 
                 out = cv2.VideoWriter(file_name, cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
                 for img in self.saved_images:

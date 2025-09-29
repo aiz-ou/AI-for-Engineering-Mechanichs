@@ -1,5 +1,6 @@
 import random
 import tempfile
+import sys
 import time
 import os
 import cv2
@@ -16,6 +17,16 @@ from utils import save_uploaded_file, concat_results, load_default_image, get_ca
 import tempfile
 from PIL import ImageFont, ImageDraw, Image
 from datetime import datetime
+
+"""
+def resource_path(relative_path):
+    try:
+        # PyInstaller创建的临时文件夹
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+"""
 
 def draw_with_chinese(image, text, position, font_size=20, color=(255, 0, 0)):
     """
@@ -172,7 +183,7 @@ class Detection_UI:
         self.timenow = 0
 
         # 初始化日志数据保存路径
-        self.saved_log_data = abs_path("tempDir/log_table_data.csv", path_type="current")
+        self.saved_log_data = abs_path("./tempDir/log_table_data.csv", path_type="current")
 
         # 如果在 session state 中不存在logTable，创建一个新的LogTable实例
         if 'logTable' not in st.session_state:
@@ -192,7 +203,7 @@ class Detection_UI:
 
         self.model = st.session_state['model']
         # 加载训练的模型权重
-        self.model.load_model(model_path=abs_path("weights/yolov8s.pt", path_type="current"))
+        self.model.load_model(model_path=abs_path("./weights/yolov8s.pt", path_type="current"))
         # 为模型中的类别重新分配颜色
         self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in
                        range(len(self.model.names))]
