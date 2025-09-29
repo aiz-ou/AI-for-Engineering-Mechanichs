@@ -62,7 +62,11 @@ class ResultLogger:
 
 
 class LogTable:
-    def __init__(self, csv_file_path=None):
+    def __init__(self, csv_file_path):
+        # 确保目录存在
+        directory = os.path.dirname(csv_file_path)
+        if not os.path.exists(directory):
+            os.makedirs(directory, exist_ok=True)
         """
         初始化类实例。
 
