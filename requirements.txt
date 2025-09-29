@@ -7,4 +7,3 @@ ultralytics>=8.0.0
 QtFusion==0.6.1
 pandas==2.3.2
 Pillow==11.3.0
-libgl1
