@@ -182,6 +182,11 @@ class Detection_UI:
         self.FPS = 30
         self.timenow = 0
 
+        def __init__(self):
+            # 确保 tempDir 存在
+            if not os.path.exists('tempDir'):
+                os.makedirs('tempDir', exist_ok=True)
+
         # 初始化日志数据保存路径
         self.saved_log_data = abs_path("./tempDir/log_table_data.csv", path_type="current")
 
