@@ -18,16 +18,6 @@ import tempfile
 from PIL import ImageFont, ImageDraw, Image
 from datetime import datetime
 
-"""
-def resource_path(relative_path):
-    try:
-        # PyInstaller创建的临时文件夹
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
-"""
-
 def draw_with_chinese(image, text, position, font_size=20, color=(255, 0, 0)):
     """
     在OpenCV图像上绘制中文文字
